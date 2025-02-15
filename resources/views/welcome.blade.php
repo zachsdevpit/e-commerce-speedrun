@@ -22,8 +22,16 @@
 
 <body>
 <h1 class="text-center text-5xl py-10">Lets Get Rolling</h1>
+
+<div class="flex justify-center">
 <a href="/admin">
-Go To Admin
+<h1 class="px-2">Go To Admin</h1>
 </a>
+
+<a href="/vendor">
+<h1 class="px-2">Go To Vendor</h1>
+</a>
+</div>
+
 </body>
 </html>
