@@ -3,15 +3,12 @@
 namespace App\Filament\Customer\Resources;
 
 use App\Filament\Customer\Resources\CartResource\Pages;
-use App\Filament\Customer\Resources\CartResource\RelationManagers;
 use App\Models\Cart;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CartResource extends Resource
 {

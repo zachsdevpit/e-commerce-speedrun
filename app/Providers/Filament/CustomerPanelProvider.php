@@ -27,6 +27,7 @@ class CustomerPanelProvider extends PanelProvider
             ->path('customer')
             ->login()
             ->registration()
+            ->brandLogo(fn () => view('logo'))
             ->viteTheme('resources/css/app.css')
             ->colors([
                 'primary' => Color::Amber,
