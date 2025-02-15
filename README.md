@@ -37,4 +37,4 @@ sail artisan migrate:fresh --seed
 Providing a thanks to these projects for giving me a solid starting point
 
 * [Database Structure](https://github.com/LaravelDaily/Laravel-Examples-Ecommerce-DB)
-*[Panels](https://github.com/filamentphp/filament)
+* [Panels](https://github.com/filamentphp/filament)
