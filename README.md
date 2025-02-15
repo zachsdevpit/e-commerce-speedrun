@@ -30,7 +30,12 @@ watch Docker Ps
 sail artisan migrate:fresh --seed
 ```
 
-5. Have Fun
+5. Default Super Admin Credentials Are
+
+```bash
+user = admin@admin.com
+password = password
+```
 
 # Credits
 
