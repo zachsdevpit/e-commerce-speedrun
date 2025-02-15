@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Http\Middleware\VendorMiddleware;
+use App\Models\Vendor;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -27,6 +28,7 @@ class VendorPanelProvider extends PanelProvider
             ->default(false)
             ->id('vendor')
             ->path('vendor')
+            ->tenant(Vendor::class)
             ->viteTheme('resources/css/app.css')
             ->colors([
                 'primary' => Color::Blue,
