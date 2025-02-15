@@ -1,10 +1,10 @@
 <?php
 
 // Public Routes
-use App\Http\Controllers\Public\VendorController;
-use App\Http\Controllers\Public\ReviewController;
-use App\Http\Controllers\Public\ProductController;
 use App\Http\Controllers\Public\ProductCategoryController;
+use App\Http\Controllers\Public\ProductController;
+use App\Http\Controllers\Public\ReviewController;
+use App\Http\Controllers\Public\VendorController;
 
 // Product Browsing
 Route::get('products', [ProductController::class, 'index']); // List all products

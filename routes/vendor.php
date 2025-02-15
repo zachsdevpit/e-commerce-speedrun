@@ -1,21 +1,21 @@
 <?php
 
 // Vendor Routes
-use App\Http\Controllers\Vendor\OrderController;
-use App\Http\Controllers\Vendor\ReturnController;
-use App\Http\Controllers\Vendor\RefundController;
 use App\Http\Controllers\Vendor\CouponController;
-use App\Http\Controllers\Vendor\ProductController;
 use App\Http\Controllers\Vendor\DashboardController;
-use App\Http\Controllers\Vendor\PromotionController;
 use App\Http\Controllers\Vendor\EmailCampaignController;
+use App\Http\Controllers\Vendor\OrderController;
+use App\Http\Controllers\Vendor\ProductController;
+use App\Http\Controllers\Vendor\PromotionController;
+use App\Http\Controllers\Vendor\RefundController;
+use App\Http\Controllers\Vendor\ReturnController;
 
 Route::group(['middleware' => ['vendor'], 'prefix' => 'vendor'], function () {
     // Dashboard
-    Route::get('dashboard', DashboardController::class); // Vendor dashboard
+    //    Route::get('dashboard', DashboardController::class); // Vendor dashboard
 
     // Product Management
-    Route::resource('products', ProductController::class)->except('show');
+    //   Route::resource('products', ProductController::class)->except('show');
 
     // Order Management
     Route::get('orders', [OrderController::class, 'index']); // List vendor's orders
