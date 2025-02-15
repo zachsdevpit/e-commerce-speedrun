@@ -28,8 +28,7 @@ class VendorPanelProvider extends PanelProvider
             ->path('vendor')
             ->viteTheme('resources/css/app.css')
             ->colors([
-                'primary' => Color::Yellow,
-                'gray' => Color::Blue,
+                'primary' => Color::Blue,
             ])
             ->discoverResources(in: app_path('Filament/Vendor/Resources'), for: 'App\\Filament\\Vendor\\Resources')
             ->discoverPages(in: app_path('Filament/Vendor/Pages'), for: 'App\\Filament\\Vendor\\Pages')
@@ -41,7 +40,6 @@ class VendorPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
             ])
             ->middleware([
-                VendorMiddleware::class,
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
@@ -54,6 +52,7 @@ class VendorPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+                VendorMiddleware::class,
+            ], isPersistent: true);
     }
 }
