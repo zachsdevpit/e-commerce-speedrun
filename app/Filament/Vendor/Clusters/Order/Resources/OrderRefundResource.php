@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Filament\Vendor\Resources;
+namespace App\Filament\Vendor\Clusters\Order\Resources;
 
-use App\Filament\Vendor\Resources\PromotionResource\Pages;
-use App\Filament\Vendor\Resources\PromotionResource\RelationManagers;
-use App\Models\Promotion;
+use App\Filament\Vendor\Clusters\Order;
+use App\Filament\Vendor\Clusters\Order\Resources\OrderRefundResource\Pages;
+use App\Filament\Vendor\Clusters\Order\Resources\OrderRefundResource\RelationManagers;
+use App\Models\OrderRefund;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,25 +14,28 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PromotionResource extends Resource
+class OrderRefundResource extends Resource
 {
-    protected static ?string $model = Promotion::class;
+    protected static ?string $model = OrderRefund::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $cluster = Order::class;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\DateTimePicker::make('start_at')
+                Forms\Components\Select::make('order_return_id')
+                    ->relationship('orderReturn', 'id')
                     ->required(),
-                Forms\Components\DateTimePicker::make('end_at')
+                Forms\Components\TextInput::make('amount')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('order_refund_status_id')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\DateTimePicker::make('processed_at')
                     ->required(),
             ]);
     }
@@ -40,12 +44,16 @@ class PromotionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('start_at')
-                    ->dateTime()
+                Tables\Columns\TextColumn::make('orderReturn.id')
+                    ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('end_at')
+                Tables\Columns\TextColumn::make('amount')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('order_refund_status_id')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('processed_at')
                     ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -80,9 +88,9 @@ class PromotionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPromotions::route('/'),
-            'create' => Pages\CreatePromotion::route('/create'),
-            'edit' => Pages\EditPromotion::route('/{record}/edit'),
+            'index' => Pages\ListOrderRefunds::route('/'),
+            'create' => Pages\CreateOrderRefund::route('/create'),
+            'edit' => Pages\EditOrderRefund::route('/{record}/edit'),
         ];
     }
 }

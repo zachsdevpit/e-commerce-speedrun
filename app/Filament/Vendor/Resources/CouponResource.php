@@ -3,11 +3,15 @@
 namespace App\Filament\Vendor\Resources;
 
 use App\Filament\Vendor\Resources\CouponResource\Pages;
+use App\Filament\Vendor\Resources\CouponResource\RelationManagers;
 use App\Models\Coupon;
+use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CouponResource extends Resource
 {
@@ -19,7 +23,22 @@ class CouponResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('code')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('discount')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\DateTimePicker::make('valid_from')
+                    ->required(),
+                Forms\Components\DateTimePicker::make('valid_to')
+                    ->required(),
+                Forms\Components\TextInput::make('usage_limit')
+                    ->numeric(),
+                Forms\Components\TextInput::make('type')
+                    ->required()
+                    ->maxLength(255)
+                    ->default('percentage'),
             ]);
     }
 
@@ -27,7 +46,29 @@ class CouponResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('code')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('discount')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('valid_from')
+                    ->dateTime()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('valid_to')
+                    ->dateTime()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('usage_limit')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('type')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

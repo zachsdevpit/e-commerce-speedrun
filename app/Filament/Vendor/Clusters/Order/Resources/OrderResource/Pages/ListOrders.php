@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Vendor\Resources\OrderResource\Pages;
+namespace App\Filament\Vendor\Clusters\Order\Resources\OrderResource\Pages;
 
-use App\Filament\Vendor\Resources\OrderResource;
+use App\Filament\Vendor\Clusters\Order\Resources\OrderResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Filament\Vendor\Resources;
+namespace App\Filament\Vendor\Clusters\Order\Resources;
 
-use App\Filament\Vendor\Resources\PromotionResource\Pages;
-use App\Filament\Vendor\Resources\PromotionResource\RelationManagers;
-use App\Models\Promotion;
+use App\Filament\Vendor\Clusters\Order;
+use App\Filament\Vendor\Clusters\Order\Resources\OrderReturnResource\Pages;
+use App\Filament\Vendor\Clusters\Order\Resources\OrderReturnResource\RelationManagers;
+use App\Models\OrderReturn;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,26 +14,27 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PromotionResource extends Resource
+class OrderReturnResource extends Resource
 {
-    protected static ?string $model = Promotion::class;
+    protected static ?string $model = OrderReturn::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $cluster = Order::class;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
+                Forms\Components\Select::make('order_item_id')
+                    ->relationship('orderItem', 'id')
+                    ->required(),
+                Forms\Components\Textarea::make('reason')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\DateTimePicker::make('start_at')
-                    ->required(),
-                Forms\Components\DateTimePicker::make('end_at')
-                    ->required(),
+                Forms\Components\TextInput::make('order_return_status_id')
+                    ->required()
+                    ->numeric(),
             ]);
     }
 
@@ -40,13 +42,11 @@ class PromotionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('start_at')
-                    ->dateTime()
+                Tables\Columns\TextColumn::make('orderItem.id')
+                    ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('end_at')
-                    ->dateTime()
+                Tables\Columns\TextColumn::make('order_return_status_id')
+                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -80,9 +80,9 @@ class PromotionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPromotions::route('/'),
-            'create' => Pages\CreatePromotion::route('/create'),
-            'edit' => Pages\EditPromotion::route('/{record}/edit'),
+            'index' => Pages\ListOrderReturns::route('/'),
+            'create' => Pages\CreateOrderReturn::route('/create'),
+            'edit' => Pages\EditOrderReturn::route('/{record}/edit'),
         ];
     }
 }

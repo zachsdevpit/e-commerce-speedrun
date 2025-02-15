@@ -1,38 +1,35 @@
 <?php
 
-namespace App\Filament\Vendor\Resources;
+namespace App\Filament\Vendor\Clusters\Order\Resources;
 
-use App\Filament\Vendor\Resources\PromotionResource\Pages;
-use App\Filament\Vendor\Resources\PromotionResource\RelationManagers;
-use App\Models\Promotion;
+use App\Filament\Vendor\Clusters\Order as OrderCluster;
+use App\Filament\Vendor\Clusters\Order\Resources\OrderResource\Pages;
+use App\Models\Order;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PromotionResource extends Resource
+class OrderResource extends Resource
 {
-    protected static ?string $model = Promotion::class;
+    protected static ?string $model = Order::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $cluster = OrderCluster::class;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                Forms\Components\Select::make('user_id')
+                    ->relationship('user', 'name'),
+                Forms\Components\TextInput::make('status_id')
+                    ->numeric(),
+                Forms\Components\TextInput::make('total_amount')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\DateTimePicker::make('start_at')
-                    ->required(),
-                Forms\Components\DateTimePicker::make('end_at')
-                    ->required(),
+                    ->numeric(),
             ]);
     }
 
@@ -40,19 +37,24 @@ class PromotionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('start_at')
-                    ->dateTime()
+                Tables\Columns\TextColumn::make('user.name')
+                    ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('end_at')
-                    ->dateTime()
+                Tables\Columns\TextColumn::make('status_id')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('total_amount')
+                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -80,9 +82,9 @@ class PromotionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPromotions::route('/'),
-            'create' => Pages\CreatePromotion::route('/create'),
-            'edit' => Pages\EditPromotion::route('/{record}/edit'),
+            'index' => Pages\ListOrders::route('/'),
+            'create' => Pages\CreateOrder::route('/create'),
+            'edit' => Pages\EditOrder::route('/{record}/edit'),
         ];
     }
 }

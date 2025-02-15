@@ -31,12 +31,14 @@ class VendorPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Blue,
             ])
+            ->topNavigation()
             ->discoverResources(in: app_path('Filament/Vendor/Resources'), for: 'App\\Filament\\Vendor\\Resources')
             ->discoverPages(in: app_path('Filament/Vendor/Pages'), for: 'App\\Filament\\Vendor\\Pages')
             ->pages([
                 Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Vendor/Widgets'), for: 'App\\Filament\\Vendor\\Widgets')
+            ->discoverClusters(in: app_path('Filament/Vendor/Clusters'), for: 'App\\Filament\\Vendor\\Clusters')
             ->widgets([
                 Widgets\AccountWidget::class,
             ])
