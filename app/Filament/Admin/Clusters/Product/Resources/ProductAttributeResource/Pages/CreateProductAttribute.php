@@ -3,7 +3,6 @@
 namespace App\Filament\Admin\Clusters\Product\Resources\ProductAttributeResource\Pages;
 
 use App\Filament\Admin\Clusters\Product\Resources\ProductAttributeResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateProductAttribute extends CreateRecord

@@ -4,15 +4,12 @@ namespace App\Filament\Admin\Clusters\Order\Resources;
 
 use App\Filament\Admin\Clusters\Order;
 use App\Filament\Admin\Clusters\Order\Resources\OrderShipmentResource\Pages;
-use App\Filament\Admin\Clusters\Order\Resources\OrderShipmentResource\RelationManagers;
 use App\Models\OrderShipment;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class OrderShipmentResource extends Resource
 {

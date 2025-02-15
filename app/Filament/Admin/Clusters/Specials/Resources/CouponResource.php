@@ -4,15 +4,12 @@ namespace App\Filament\Admin\Clusters\Specials\Resources;
 
 use App\Filament\Admin\Clusters\Specials;
 use App\Filament\Admin\Clusters\Specials\Resources\CouponResource\Pages;
-use App\Filament\Admin\Clusters\Specials\Resources\CouponResource\RelationManagers;
 use App\Models\Coupon;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CouponResource extends Resource
 {

@@ -4,15 +4,12 @@ namespace App\Filament\Admin\Clusters\Specials\Resources;
 
 use App\Filament\Admin\Clusters\Specials;
 use App\Filament\Admin\Clusters\Specials\Resources\PromotionResource\Pages;
-use App\Filament\Admin\Clusters\Specials\Resources\PromotionResource\RelationManagers;
 use App\Models\Promotion;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PromotionResource extends Resource
 {

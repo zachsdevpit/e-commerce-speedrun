@@ -4,15 +4,12 @@ namespace App\Filament\Admin\Clusters\Email\Resources;
 
 use App\Filament\Admin\Clusters\Email;
 use App\Filament\Admin\Clusters\Email\Resources\EmailCampaignStatusResource\Pages;
-use App\Filament\Admin\Clusters\Email\Resources\EmailCampaignStatusResource\RelationManagers;
 use App\Models\EmailCampaignStatus;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class EmailCampaignStatusResource extends Resource
 {
