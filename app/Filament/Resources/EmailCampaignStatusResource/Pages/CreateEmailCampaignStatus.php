@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\EmailCampaignStatusResource\Pages;
 
 use App\Filament\Resources\EmailCampaignStatusResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateEmailCampaignStatus extends CreateRecord

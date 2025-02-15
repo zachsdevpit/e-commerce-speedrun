@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Promotion;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 class PromotionFactory extends Factory
 {
@@ -13,12 +13,12 @@ class PromotionFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'       => fake()->word(),
+            'title' => fake()->word(),
             'description' => fake()->text(),
-            'start_at'    => Carbon::now(),
-            'end_at'      => Carbon::now(),
-            'created_at'  => Carbon::now(),
-            'updated_at'  => Carbon::now(),
+            'start_at' => Carbon::now(),
+            'end_at' => Carbon::now(),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ];
     }
 }

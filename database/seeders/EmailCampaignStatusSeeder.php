@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\EmailCampaignStatus;
+use Illuminate\Database\Seeder;
 
 class EmailCampaignStatusSeeder extends Seeder
 {

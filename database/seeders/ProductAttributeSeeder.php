@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\ProductAttribute;
+use Illuminate\Database\Seeder;
 
 class ProductAttributeSeeder extends Seeder
 {
@@ -13,7 +13,7 @@ class ProductAttributeSeeder extends Seeder
 
         $attributesToInsert = array_map(function ($attribute) {
             return [
-                'name'       => $attribute,
+                'name' => $attribute,
                 'created_at' => now(),
                 'updated_at' => now(),
             ];

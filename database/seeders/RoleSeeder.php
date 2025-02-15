@@ -22,7 +22,7 @@ class RoleSeeder extends Seeder
 
         $rolesToInsert = array_map(function ($role) {
             return [
-                'name'       => $role['name'],
+                'name' => $role['name'],
                 'created_at' => now(),
                 'updated_at' => now(),
             ];

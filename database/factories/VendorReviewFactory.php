@@ -5,8 +5,8 @@ namespace Database\Factories;
 use App\Models\User;
 use App\Models\Vendor;
 use App\Models\VendorReview;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 class VendorReviewFactory extends Factory
 {
@@ -15,13 +15,13 @@ class VendorReviewFactory extends Factory
     public function definition(): array
     {
         return [
-            'rating'     => fake()->randomNumber(),
-            'comment'    => fake()->word(),
+            'rating' => fake()->randomNumber(),
+            'comment' => fake()->word(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
             'vendor_id' => Vendor::factory(),
-            'user_id'   => User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

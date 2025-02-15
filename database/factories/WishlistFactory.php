@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use App\Models\Product;
+use App\Models\User;
 use App\Models\Wishlist;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 class WishlistFactory extends Factory
 {
@@ -18,7 +18,7 @@ class WishlistFactory extends Factory
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
-            'user_id'    => User::factory(),
+            'user_id' => User::factory(),
             'product_id' => Product::factory(),
         ];
     }

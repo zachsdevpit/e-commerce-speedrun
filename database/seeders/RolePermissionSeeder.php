@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Role;
 use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class RolePermissionSeeder extends Seeder
@@ -61,7 +61,7 @@ class RolePermissionSeeder extends Seeder
             if ($rolePerms === '*') {
                 foreach ($permissions as $permission) {
                     $rolePermissionsToInsert[] = [
-                        'role_id'       => $roleId,
+                        'role_id' => $roleId,
                         'permission_id' => $permission->id,
                     ];
                 }
@@ -74,7 +74,7 @@ class RolePermissionSeeder extends Seeder
                 $permission = $permissions->firstWhere('name', $permName);
                 if ($permission) {
                     $rolePermissionsToInsert[] = [
-                        'role_id'       => $roleId,
+                        'role_id' => $roleId,
                         'permission_id' => $permission->id,
                     ];
                 }

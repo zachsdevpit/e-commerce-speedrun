@@ -17,12 +17,12 @@ class VendorPaymentsSeeder extends Seeder
         foreach ($vendors as $vendor) {
             for ($i = 0; $i < 12; $i++) {
                 $payments[] = [
-                    'vendor_id'      => $vendor->id,
-                    'amount'         => rand(1000, 10000) + (rand(0, 99) / 100),
-                    'payment_date'   => now()->subMonths($i),
+                    'vendor_id' => $vendor->id,
+                    'amount' => rand(1000, 10000) + (rand(0, 99) / 100),
+                    'payment_date' => now()->subMonths($i),
                     'payment_method' => $paymentMethods[array_rand($paymentMethods)],
-                    'created_at'     => now(),
-                    'updated_at'     => now(),
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ];
             }
         }

@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\Product;
 use App\Models\Wishlist;
 use Illuminate\Database\Seeder;
 
@@ -22,7 +22,7 @@ class WishlistSeeder extends Seeder
 
             foreach ($wishlistProducts as $product) {
                 $wishlists[] = [
-                    'user_id'    => $user->id,
+                    'user_id' => $user->id,
                     'product_id' => $product->id,
                     'created_at' => now(),
                     'updated_at' => now(),

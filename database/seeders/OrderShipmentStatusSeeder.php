@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\OrderShipmentStatus;
+use Illuminate\Database\Seeder;
 
 class OrderShipmentStatusSeeder extends Seeder
 {
@@ -19,7 +19,7 @@ class OrderShipmentStatusSeeder extends Seeder
         ];
 
         OrderShipmentStatus::insert(array_map(fn (string $name) => [
-            'name'       => $name,
+            'name' => $name,
             'created_at' => now(),
             'updated_at' => now(),
         ], $statuses));

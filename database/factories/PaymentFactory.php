@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use App\Models\Order;
 use App\Models\Payment;
-use Illuminate\Support\Carbon;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 class PaymentFactory extends Factory
 {
@@ -15,15 +15,15 @@ class PaymentFactory extends Factory
     public function definition(): array
     {
         return [
-            'amount'       => fake()->randomFloat(),
-            'method'       => fake()->word(),
-            'status'       => fake()->word(),
+            'amount' => fake()->randomFloat(),
+            'method' => fake()->word(),
+            'status' => fake()->word(),
             'processed_at' => Carbon::now(),
-            'created_at'   => Carbon::now(),
-            'updated_at'   => Carbon::now(),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
 
             'order_id' => Order::factory(),
-            'user_id'  => User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

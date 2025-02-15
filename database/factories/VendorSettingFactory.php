@@ -4,8 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Vendor;
 use App\Models\VendorSetting;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 class VendorSettingFactory extends Factory
 {
@@ -14,8 +14,8 @@ class VendorSettingFactory extends Factory
     public function definition(): array
     {
         return [
-            'key'        => fake()->word(),
-            'value'      => fake()->word(),
+            'key' => fake()->word(),
+            'value' => fake()->word(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 

@@ -21,10 +21,10 @@ class VendorReviewsSeeder extends Seeder
             $reviewCount = rand(5, 15);
             for ($i = 0; $i < $reviewCount; $i++) {
                 $reviews[] = [
-                    'vendor_id'  => $vendor->id,
-                    'user_id'    => $users->random()->id,
-                    'rating'     => rand(1, 5),
-                    'comment'    => "Review comment " . ($i + 1) . " for vendor " . $vendor->id,
+                    'vendor_id' => $vendor->id,
+                    'user_id' => $users->random()->id,
+                    'rating' => rand(1, 5),
+                    'comment' => 'Review comment '.($i + 1).' for vendor '.$vendor->id,
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];

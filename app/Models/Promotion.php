@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Promotion extends Model
 {
@@ -20,7 +20,7 @@ class Promotion extends Model
     {
         return [
             'start_at' => 'datetime',
-            'end_at'   => 'datetime',
+            'end_at' => 'datetime',
         ];
     }
 }

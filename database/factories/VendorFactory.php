@@ -4,9 +4,9 @@ namespace Database\Factories;
 
 use App\Models\User;
 use App\Models\Vendor;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
 class VendorFactory extends Factory
 {
@@ -15,15 +15,14 @@ class VendorFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'        => fake()->name(),
+            'name' => fake()->name(),
             'description' => fake()->text(),
-            'created_at'  => Carbon::now(),
-            'updated_at'  => Carbon::now(),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
 
             'user_id' => User::factory(),
         ];
     }
-
 
     public function configure(): static
     {

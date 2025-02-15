@@ -3,7 +3,6 @@
 namespace App\Filament\Vendor\Resources\PromotionResource\Pages;
 
 use App\Filament\Vendor\Resources\PromotionResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreatePromotion extends CreateRecord

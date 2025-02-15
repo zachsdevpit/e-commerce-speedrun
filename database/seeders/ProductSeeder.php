@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Vendor;
 use App\Models\Product;
-use App\Models\ProductTag;
-use App\Models\ProductStatus;
-use App\Models\ProductVariant;
-use Illuminate\Database\Seeder;
-use App\Models\ProductCategory;
 use App\Models\ProductAttribute;
+use App\Models\ProductCategory;
+use App\Models\ProductStatus;
+use App\Models\ProductTag;
+use App\Models\ProductVariant;
+use App\Models\Vendor;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 
 class ProductSeeder extends Seeder
@@ -17,24 +17,24 @@ class ProductSeeder extends Seeder
     private array $tagsByCategory = [
         'Electronics' => ['wireless', '4K', 'smart', 'bluetooth', 'portable', 'rechargeable', 'HD', 'LED', 'gaming', 'USB-C'],
         'Smartphones' => ['5G', 'dual-sim', 'android', 'ios', 'fast-charging', 'AMOLED'],
-        'Laptops'     => ['SSD', 'lightweight', 'gaming', 'business', 'ultrabook', 'touch-screen'],
+        'Laptops' => ['SSD', 'lightweight', 'gaming', 'business', 'ultrabook', 'touch-screen'],
         'Accessories' => ['wireless', 'protective', 'premium', 'portable', 'durable'],
 
-        'Fashion'           => ['casual', 'formal', 'trendy', 'vintage', 'summer', 'winter', 'spring', 'autumn'],
-        'Men\'s Clothing'   => ['cotton', 'leather', 'slim-fit', 'regular-fit', 'sports', 'business'],
+        'Fashion' => ['casual', 'formal', 'trendy', 'vintage', 'summer', 'winter', 'spring', 'autumn'],
+        'Men\'s Clothing' => ['cotton', 'leather', 'slim-fit', 'regular-fit', 'sports', 'business'],
         'Women\'s Clothing' => ['cotton', 'silk', 'casual', 'party-wear', 'office-wear', 'designer'],
 
         'Home & Living' => ['modern', 'classic', 'eco-friendly', 'handmade', 'premium'],
-        'Furniture'     => ['wooden', 'metal', 'plastic', 'foldable', 'storage', 'outdoor'],
-        'Decor'         => ['wall-art', 'lighting', 'handcrafted', 'vintage', 'modern'],
+        'Furniture' => ['wooden', 'metal', 'plastic', 'foldable', 'storage', 'outdoor'],
+        'Decor' => ['wall-art', 'lighting', 'handcrafted', 'vintage', 'modern'],
 
-        'Sports'          => ['professional', 'training', 'outdoor', 'indoor', 'competition'],
-        'Equipment'       => ['durable', 'lightweight', 'professional', 'beginner-friendly'],
+        'Sports' => ['professional', 'training', 'outdoor', 'indoor', 'competition'],
+        'Equipment' => ['durable', 'lightweight', 'professional', 'beginner-friendly'],
         'Sports Clothing' => ['breathable', 'moisture-wicking', 'compression', 'lightweight'],
 
-        'Beauty'   => ['organic', 'vegan', 'cruelty-free', 'natural', 'premium'],
+        'Beauty' => ['organic', 'vegan', 'cruelty-free', 'natural', 'premium'],
         'Skincare' => ['anti-aging', 'moisturizing', 'sensitive-skin', 'oil-free'],
-        'Makeup'   => ['long-lasting', 'waterproof', 'matte', 'shimmer', 'hypoallergenic'],
+        'Makeup' => ['long-lasting', 'waterproof', 'matte', 'shimmer', 'hypoallergenic'],
     ];
 
     private array $commonTags = ['new-arrival', 'best-seller', 'sale', 'limited-edition', 'premium', 'trending'];
@@ -59,7 +59,7 @@ class ProductSeeder extends Seeder
         $uniqueTags = array_unique($allPossibleTags);
 
         $tagRecords = array_map(fn ($tag) => [
-            'name'       => $tag,
+            'name' => $tag,
             'created_at' => now(),
             'updated_at' => now(),
         ], $uniqueTags);
@@ -82,16 +82,16 @@ class ProductSeeder extends Seeder
             }
 
             $products[] = [
-                'id'                => $productId,
-                'vendor_id'         => $vendors->random()->id,
+                'id' => $productId,
+                'vendor_id' => $vendors->random()->id,
                 'product_category_id' => $category->id,
-                'name'              => "Product " . ($i + 1),
-                'description'       => "Description for product " . ($i + 1),
-                'price'             => rand(10, 1000) + 0.99,
-                'quantity'          => rand(10, 100),
+                'name' => 'Product '.($i + 1),
+                'description' => 'Description for product '.($i + 1),
+                'price' => rand(10, 1000) + 0.99,
+                'quantity' => rand(10, 100),
                 'product_status_id' => $statuses->random()->id,
-                'created_at'        => now(),
-                'updated_at'        => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
             ];
 
             // Generate tags for this product
@@ -135,13 +135,13 @@ class ProductSeeder extends Seeder
                 $variantCount = rand(2, 4);
                 for ($j = 0; $j < $variantCount; $j++) {
                     $variants[] = [
-                        'product_id'       => $productId,
+                        'product_id' => $productId,
                         'product_attribute_id' => $attribute->id,
-                        'value'            => $this->generateVariantValue($attribute->name),
+                        'value' => $this->generateVariantValue($attribute->name),
                         'additional_price' => rand(0, 1) ? rand(5, 50) : null,
-                        'quantity'         => rand(5, 30),
-                        'created_at'       => now(),
-                        'updated_at'       => now(),
+                        'quantity' => rand(5, 30),
+                        'created_at' => now(),
+                        'updated_at' => now(),
                     ];
                 }
             }
@@ -160,14 +160,15 @@ class ProductSeeder extends Seeder
     private function generateVariantValue(string $attributeName): string
     {
         $values = [
-            'Color'    => ['Red', 'Blue', 'Green', 'Black', 'White', 'Yellow', 'Purple'],
-            'Size'     => ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+            'Color' => ['Red', 'Blue', 'Green', 'Black', 'White', 'Yellow', 'Purple'],
+            'Size' => ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
             'Material' => ['Cotton', 'Polyester', 'Leather', 'Metal', 'Plastic'],
-            'Storage'  => ['64GB', '128GB', '256GB', '512GB', '1TB'],
-            'RAM'      => ['4GB', '8GB', '16GB', '32GB'],
+            'Storage' => ['64GB', '128GB', '256GB', '512GB', '1TB'],
+            'RAM' => ['4GB', '8GB', '16GB', '32GB'],
         ];
 
         $options = $values[$attributeName] ?? ['Option 1', 'Option 2', 'Option 3'];
+
         return $options[array_rand($options)];
     }
 

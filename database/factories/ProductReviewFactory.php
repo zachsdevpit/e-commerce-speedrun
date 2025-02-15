@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use App\Models\Product;
 use App\Models\ProductReview;
-use Illuminate\Support\Carbon;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 class ProductReviewFactory extends Factory
 {
@@ -15,13 +15,13 @@ class ProductReviewFactory extends Factory
     public function definition(): array
     {
         return [
-            'rating'     => fake()->randomNumber(),
-            'comment'    => fake()->word(),
+            'rating' => fake()->randomNumber(),
+            'comment' => fake()->word(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
             'product_id' => Product::factory(),
-            'user_id'    => User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

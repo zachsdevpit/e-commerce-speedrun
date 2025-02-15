@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\EmailCampaign;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 class EmailCampaignFactory extends Factory
 {
@@ -13,10 +13,10 @@ class EmailCampaignFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'      => fake()->word(),
-            'content'    => fake()->word(),
-            'status'     => fake()->word(),
-            'sent_at'    => Carbon::now(),
+            'title' => fake()->word(),
+            'content' => fake()->word(),
+            'status' => fake()->word(),
+            'sent_at' => Carbon::now(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

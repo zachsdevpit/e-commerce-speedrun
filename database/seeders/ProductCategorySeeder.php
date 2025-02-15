@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\ProductCategory;
+use Illuminate\Database\Seeder;
 
 class ProductCategorySeeder extends Seeder
 {
@@ -40,8 +40,8 @@ class ProductCategorySeeder extends Seeder
         // First, insert main categories
         foreach ($categoryData as $category) {
             $categories[] = [
-                'name'       => $category['name'],
-                'parent_id'  => null,
+                'name' => $category['name'],
+                'parent_id' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
@@ -55,8 +55,8 @@ class ProductCategorySeeder extends Seeder
             $parentId = $parentCategories[$category['name']]->id;
             foreach ($category['children'] as $childName) {
                 $childCategories[] = [
-                    'name'       => $childName,
-                    'parent_id'  => $parentId,
+                    'name' => $childName,
+                    'parent_id' => $parentId,
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];

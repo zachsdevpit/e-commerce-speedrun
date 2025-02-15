@@ -18,7 +18,7 @@ class CartSeeder extends Seeder
         foreach ($users as $user) {
             if (rand(0, 1)) {  // 50% chance of having a cart
                 $carts[] = [
-                    'user_id'    => $user->id,
+                    'user_id' => $user->id,
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];

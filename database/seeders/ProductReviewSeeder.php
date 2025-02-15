@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use App\Models\Product;
 use App\Models\ProductReview;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class ProductReviewSeeder extends Seeder
@@ -22,9 +22,9 @@ class ProductReviewSeeder extends Seeder
             for ($i = 0; $i < $reviewsCount; $i++) {
                 $allReviews[] = [
                     'product_id' => $product->id,
-                    'user_id'    => $users[array_rand($users)],
-                    'rating'     => rand(1, 5),
-                    'comment'    => fake()->paragraph(),
+                    'user_id' => $users[array_rand($users)],
+                    'rating' => rand(1, 5),
+                    'comment' => fake()->paragraph(),
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];

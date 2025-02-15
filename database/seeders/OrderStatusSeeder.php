@@ -23,7 +23,7 @@ class OrderStatusSeeder extends Seeder
         ];
 
         OrderStatus::insert(array_map(fn (string $name) => [
-            'name'       => $name,
+            'name' => $name,
             'created_at' => now(),
             'updated_at' => now(),
         ], $statuses));

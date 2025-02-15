@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Support\Carbon;
 use App\Models\ProductAttribute;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 class ProductAttributeFactory extends Factory
 {
@@ -13,7 +13,7 @@ class ProductAttributeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'       => fake()->name(),
+            'name' => fake()->name(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

@@ -37,11 +37,11 @@ class VendorSeeder extends Seeder
 
         $vendorsToInsert = array_map(function ($vendor) use ($vendorUserIds) {
             return [
-                'user_id'     => $vendorUserIds[array_rand($vendorUserIds)],
-                'name'        => $vendor['name'],
+                'user_id' => $vendorUserIds[array_rand($vendorUserIds)],
+                'name' => $vendor['name'],
                 'description' => $vendor['description'],
-                'created_at'  => now(),
-                'updated_at'  => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
             ];
         }, $vendors);
 

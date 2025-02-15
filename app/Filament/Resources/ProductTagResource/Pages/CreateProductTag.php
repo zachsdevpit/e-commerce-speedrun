@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\ProductTagResource\Pages;
 
 use App\Filament\Resources\ProductTagResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateProductTag extends CreateRecord

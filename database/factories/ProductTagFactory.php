@@ -4,8 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Product;
 use App\Models\ProductTag;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 class ProductTagFactory extends Factory
 {
@@ -14,7 +14,7 @@ class ProductTagFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'       => fake()->name(),
+            'name' => fake()->name(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 

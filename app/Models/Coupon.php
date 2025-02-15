@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Coupon extends Model
 {
@@ -23,7 +23,7 @@ class Coupon extends Model
     {
         return [
             'valid_from' => 'datetime',
-            'valid_to'   => 'datetime',
+            'valid_to' => 'datetime',
         ];
     }
 }

@@ -48,7 +48,7 @@ class PermissionSeeder extends Seeder
 
         $permissionsToInsert = array_map(function ($permission) {
             return [
-                'name'       => $permission['name'],
+                'name' => $permission['name'],
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
