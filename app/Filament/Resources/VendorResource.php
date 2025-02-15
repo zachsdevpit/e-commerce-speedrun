@@ -2,21 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Models\User;
+use App\Filament\Resources\VendorResource\Pages;
+use App\Models\Vendor;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-class UserResource extends Resource
+class VendorResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = Vendor::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
@@ -31,13 +30,10 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('email_verified_at'),
-                Tables\Columns\TextColumn::make('role.name'),
+
             ])
             ->filters([
-                SelectFilter::make('role')
-                    ->relationship('role', 'name'),
+                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -59,9 +55,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => Pages\ListVendors::route('/'),
+            'create' => Pages\CreateVendor::route('/create'),
+            'edit' => Pages\EditVendor::route('/{record}/edit'),
         ];
     }
 }

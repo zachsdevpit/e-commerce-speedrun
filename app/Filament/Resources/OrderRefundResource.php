@@ -2,21 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Models\User;
+use App\Filament\Resources\OrderRefundResource\Pages;
+use App\Models\OrderRefund;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-class UserResource extends Resource
+class OrderRefundResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = OrderRefund::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
-
-    protected static ?int $navigationSort = 1;
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -30,14 +27,13 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('email_verified_at'),
-                Tables\Columns\TextColumn::make('role.name'),
+                Tables\Columns\TextColumn::make('id'),
+                Tables\Columns\TextColumn::make('amount'),
+                Tables\Columns\TextColumn::make('processed_at'),
+
             ])
             ->filters([
-                SelectFilter::make('role')
-                    ->relationship('role', 'name'),
+                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -59,9 +55,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => Pages\ListOrderRefunds::route('/'),
+            'create' => Pages\CreateOrderRefund::route('/create'),
+            'edit' => Pages\EditOrderRefund::route('/{record}/edit'),
         ];
     }
 }

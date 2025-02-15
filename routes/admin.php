@@ -30,43 +30,43 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function () {
     //    Route::resource('users', UserController::class)->except(['show']); // Admin user management
 
     // Role and Permission Management
-    Route::resource('roles', RoleController::class)->except(['show']);
-    Route::resource('permissions', PermissionController::class)->except(['show']);
+    //    Route::resource('roles', RoleController::class)->except(['show']);
+    //    Route::resource('permissions', PermissionController::class)->except(['show']);
 
     // Vendor Management
-    Route::resource('vendors', VendorController::class);
+    //   Route::resource('vendors', VendorController::class);
 
     // Product Management
-    Route::resource('products', ProductController::class)->except('show');
-    Route::resource('product-categories', ProductCategoryController::class)->except('show');
-    Route::resource('product-attributes', ProductAttributeController::class)->except('show');
-    Route::resource('product-statuses', ProductStatusController::class)->except('show');
-    Route::resource('product-tags', ProductTagController::class)->except('show');
+    //    Route::resource('products', ProductController::class)->except('show');
+    //    Route::resource('product-categories', ProductCategoryController::class)->except('show');
+    //    Route::resource('product-attributes', ProductAttributeController::class)->except('show');
+    //    Route::resource('product-statuses', ProductStatusController::class)->except('show');
+    //    Route::resource('product-tags', ProductTagController::class)->except('show');
 
     // Payment Methods
-    Route::resource('payment-methods', PaymentMethodController::class)->except('show');
+    //    Route::resource('payment-methods', PaymentMethodController::class)->except('show');
 
     // Order Management
     Route::put('orders/{order}/status', [OrderController::class, 'updateStatus']); // Update order status
-    Route::resource('orders', OrderController::class)->only(['index', 'show']); // List all orders
-    Route::resource('order-statuses', OrderStatusController::class)->except('show');
+    //   Route::resource('orders', OrderController::class)->only(['index', 'show']); // List all orders
+    //   Route::resource('order-statuses', OrderStatusController::class)->except('show');
 
     // Shipment
-    Route::resource('shipments', ShipmentController::class);
-    Route::resource('shipment-statuses', ShipmentStatusController::class)->except('show');
+    //    Route::resource('shipments', ShipmentController::class);
+    //   Route::resource('shipment-statuses', ShipmentStatusController::class)->except('show');
 
     // Returns and Refunds
-    Route::resource('returns', ReturnController::class);
-    Route::resource('return-statuses', ReturnStatusController::class)->except('show');
-    Route::resource('refunds', RefundController::class);
-    Route::resource('refund-statuses', RefundStatusController::class)->except('show');
+    //    Route::resource('returns', ReturnController::class);
+    //    Route::resource('return-statuses', ReturnStatusController::class)->except('show');
+    //    Route::resource('refunds', RefundController::class);
+    //    Route::resource('refund-statuses', RefundStatusController::class)->except('show');
 
     // Promotions and Marketing
-    Route::resource('coupons', CouponController::class);
-    Route::resource('promotions', PromotionController::class);
-    Route::resource('email-campaigns', EmailCampaignController::class);
-    Route::resource('email-campaigns-status', EmailCampaignStatusController::class)->except('show');
+    //    Route::resource('coupons', CouponController::class);
+    //    Route::resource('promotions', PromotionController::class);
+    //    Route::resource('email-campaigns', EmailCampaignController::class);
+    //    Route::resource('email-campaigns-status', EmailCampaignStatusController::class)->except('show');
 
     // Reviews Moderation
-    Route::resource('reviews', ReviewController::class)->except(['edit', 'update']);
+    //    Route::resource('reviews', ReviewController::class)->except(['edit', 'update']);
 });
