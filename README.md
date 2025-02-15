@@ -2,6 +2,8 @@
 
 Writing a MVP e-commerce-platform utilizing a few laravel libraries in order to see if moving from 11->12 will have any quirks or gotchas
 
+[Source Of Claim](https://laravel-news.com/laravel-12-release-date)
+
 ---
 
 Opted to use Sail so this "requires" Docker to run
