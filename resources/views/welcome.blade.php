@@ -22,5 +22,8 @@
 
 <body>
 <h1 class="text-center text-5xl py-10">Lets Get Rolling</h1>
+<a href="/admin">
+Go To Admin
+</a>
 </body>
 </html>
