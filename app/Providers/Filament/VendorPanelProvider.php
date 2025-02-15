@@ -24,6 +24,7 @@ class VendorPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->default(false)
             ->id('vendor')
             ->path('vendor')
             ->viteTheme('resources/css/app.css')
