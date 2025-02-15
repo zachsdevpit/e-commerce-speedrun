@@ -1,33 +1,33 @@
 <?php
 
 // Admin Routes
-use App\Http\Controllers\RefundController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\OrderController;
-use App\Http\Controllers\OrderStatusController;
-use App\Http\Controllers\Admin\VendorController;
-use App\Http\Controllers\Admin\ReturnController;
-use App\Http\Controllers\ReturnStatusController;
-use App\Http\Controllers\RefundStatusController;
 use App\Http\Controllers\Admin\CouponController;
-use App\Http\Controllers\Admin\ReviewController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\ShipmentController;
-use App\Http\Controllers\Admin\PromotionController;
-use App\Http\Controllers\Admin\PermissionController;
-use App\Http\Controllers\Admin\ProductTagController;
-use App\Http\Controllers\Admin\PaymentMethodController;
-use App\Http\Controllers\Admin\ProductStatusController;
 use App\Http\Controllers\Admin\EmailCampaignController;
-use App\Http\Controllers\Admin\ShipmentStatusController;
-use App\Http\Controllers\Admin\ProductCategoryController;
-use App\Http\Controllers\Admin\ProductAttributeController;
 use App\Http\Controllers\Admin\EmailCampaignStatusController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\PaymentMethodController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\ProductAttributeController;
+use App\Http\Controllers\Admin\ProductCategoryController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductStatusController;
+use App\Http\Controllers\Admin\ProductTagController;
+use App\Http\Controllers\Admin\PromotionController;
+use App\Http\Controllers\Admin\ReturnController;
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\ShipmentController;
+use App\Http\Controllers\Admin\ShipmentStatusController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\VendorController;
+use App\Http\Controllers\OrderStatusController;
+use App\Http\Controllers\RefundController;
+use App\Http\Controllers\RefundStatusController;
+use App\Http\Controllers\ReturnStatusController;
 
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function () {
     // User Management
-    Route::resource('users', UserController::class)->except(['show']); // Admin user management
+    //    Route::resource('users', UserController::class)->except(['show']); // Admin user management
 
     // Role and Permission Management
     Route::resource('roles', RoleController::class)->except(['show']);
