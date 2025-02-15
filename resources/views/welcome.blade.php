@@ -31,7 +31,15 @@
 <a href="/vendor">
 <h1 class="px-2">Go To Vendor</h1>
 </a>
+
+<a href="/customer">
+<h1 class="px-2">Go To Customer</h1>
+</a>
 </div>
+
+<a href="/products">
+<h1 class="text-5xl text-center py-5">Products</h1>
+</a>
 
 </body>
 </html>
