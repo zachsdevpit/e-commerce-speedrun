@@ -6,7 +6,3 @@
 [x-cloak] {
     display: none !important;
 }
-
-.fi-main {
- @apply bg-green-300 dark:bg-green-800;
-}
